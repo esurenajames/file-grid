@@ -305,37 +305,37 @@ const navItems = [
 const features = [
   {
     title: "File Sharing",
-    href: "/",
+    href: "/features",
     description: "Share files and folders with anyone, with advanced protection.",
     available: true,
   },
   {
     title: "Cloud Storage",
-    href: "/product/cloud-storage",
+    href: "/features",
     description: "Securely store and access your files from anywhere, anytime.",
     available: false,
   },
   {
     title: "Team Collaboration",
-    href: "/product/team-collaboration",
+    href: "/features",
     description: "Collaborate with your team in real-time and manage permissions easily.",
     available: false,
   },
   {
     title: "Integrations",
-    href: "/product/integrations",
+    href: "/features",
     description: "Connect StackDrive with your favorite apps and workflows.",
     available: false,
   },
   {
     title: "Backup & Restore",
-    href: "/product/backup-restore",
+    href: "/features",
     description: "Automatic backup and easy restore for peace of mind.",
     available: false,
   },
   {
     title: "Security",
-    href: "/product/security",
+    href: "/features",
     description: "Enterprise-grade security features to keep your data safe.",
     available: false,
   },

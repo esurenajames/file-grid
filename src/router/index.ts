@@ -5,6 +5,9 @@ import HowItWorks from '@/pages/HowItWorks.vue'
 import About from '@/pages/About.vue'
 import Blog from '@/pages/Blog.vue'
 import Error404 from '@/pages/Error404.vue'
+import Features from '@/pages/Features.vue'
+import BlogContent from '@/components/modules/blogs/BlogContent.vue'
+
 import { useActionsStore } from "@/stores/actions"
 
 const routes = [  
@@ -14,6 +17,8 @@ const routes = [
   { path: '/about', component: About },
   { path: '/pricing', redirect: '/#pricing' },
   { path: '/blog', component: Blog },
+  { path: '/blog/:id', component: BlogContent },
+  { path: '/features', component: Features },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: Error404 },
 ]
 

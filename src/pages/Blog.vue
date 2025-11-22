@@ -1,9 +1,7 @@
 <template>
   <section class="bg-black py-20">
     <div class="max-w-7xl mx-auto px-6">
-      <!-- Header Section with Subscribe and Info -->
       <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
-        <!-- Left Side: Title & Subscribe -->
         <div>
           <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
             <span class="text-orange-500">The Journal:</span> File Sharing Insights, Tutorials, and Industry News
@@ -29,7 +27,6 @@
             </Button>
           </form>
         </div>
-        <!-- Right Side: Info Text -->
         <div class="lg:pl-8">
           <div class="text-neutral-300 text-base">
             Subscribe to learn about new product features, the latest in technology, solutions, and updates. Stay connected for tips, tutorials, and industry news from the FileGrid team.
@@ -37,12 +34,12 @@
         </div>
       </div>
 
-      <!-- Blog Grid -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <Card
           v-for="post in posts"
           :key="post.id"
-          class="bg-neutral-900 border-neutral-800 hover:border-orange-600 transition-all duration-300 group overflow-hidden"
+          class="bg-neutral-900 border-neutral-800 hover:border-orange-600 transition-all duration-300 group overflow-hidden cursor-pointer"
+          @click="$router.push(`/blog/${post.id}`)"
         >
           <CardContent class="p-0">
             <div class="aspect-[4/3] bg-neutral-800 overflow-hidden">
@@ -99,11 +96,13 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const email = ref('');
+const router = useRouter();
 
 const posts = [
   {
