@@ -36,12 +36,12 @@ const router = createRouter({
   },
 });
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to, _from, next) => {
   if (to.path.startsWith('/room/')) {
     const roomCode = to.params.room_code as string;
-    const actionsStore = useActionsStore(); 
+    const actionsStore = useActionsStore();
     try {
-      await actionsStore.joinRoom(roomCode); 
+      await actionsStore.joinRoom(roomCode);
       next();
     } catch (error) {
       next({ name: 'NotFound' });
