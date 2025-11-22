@@ -30,3 +30,7 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 </script>
+
+<style scoped>
+/* Add any additional styles if necessary */
+</style>
