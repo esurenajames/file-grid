@@ -94,7 +94,7 @@
 </template>
 
 <script setup lang="ts">
-import { Info, X, Zap, Lock, Video, MessageSquare, Monitor, FileText, Check, Lightbulb } from 'lucide-vue-next';
+import { Info, X, Video, MessageSquare, Monitor, FileText, Check, Lightbulb } from 'lucide-vue-next';
 
 const content = {
   header: {
