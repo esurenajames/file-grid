@@ -8,7 +8,6 @@
 </template>
 
 <script setup lang="ts">
-import Layout from "@/layouts/Layout.vue";
 import Landing from "@/components/Landing.vue";
 import Trusted from "@/components/Trusted.vue";
 import Services from "@/components/Services.vue";

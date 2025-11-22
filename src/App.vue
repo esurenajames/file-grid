@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import Layout from "@/layouts/Layout.vue";
-import { Toaster, toast } from 'vue-sonner'
+import { Toaster } from 'vue-sonner'
 import 'vue-sonner/style.css'
 
 
