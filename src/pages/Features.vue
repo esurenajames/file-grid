@@ -33,9 +33,12 @@
             <p class="text-white/90 mb-6 max-w-sm">
               Share files as easily as dragging them into FileGrid. No complicated uploads, just intuitive design.
             </p>
-            <button class="bg-white text-orange-600 hover:bg-neutral-100 px-6 py-2 rounded-lg font-semibold transition-colors">
+            <Button
+              class="bg-white text-orange-600 hover:bg-neutral-100 px-6 py-2 rounded-lg font-semibold transition-colors"
+              @click="router.push('/how-it-works')"
+            >
               Learn More
-            </button>
+            </Button>
           </div>
           <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl"></div>
         </div>
@@ -47,9 +50,13 @@
             <p class="text-neutral-300 mb-6 max-w-sm">
               Work together in real-time. See changes instantly, chat with teammates, and stay perfectly in sync.
             </p>
-            <button class="border-2 border-orange-600 text-orange-500 hover:bg-orange-600 hover:text-white px-6 py-2 rounded-lg font-semibold transition-colors">
+            <Button
+              variant="outline"
+              class="border-2 border-orange-600 text-orange-500 hover:bg-orange-600 hover:text-white px-6 py-2 rounded-lg font-semibold transition-colors"
+              @click="router.push('/how-it-works')"
+            >
               Learn How It Works
-            </button>
+            </Button>
           </div>
           <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-orange-600 opacity-5 rounded-full blur-3xl"></div>
         </div>
@@ -75,6 +82,10 @@
 <script setup>
 import FeaturesGrid from '@/components/modules/features/Features.vue';
 import Ready from '@/components/modules/features/Ready.vue';
+import { Button } from '@/components/ui/button';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const stats = [
   { stat: "10M+", label: "Files Shared Daily" },

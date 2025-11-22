@@ -38,10 +38,14 @@
         {{ feature.description }}
       </p>
 
-      <div v-if="feature.available" class="inline-flex items-center gap-2 text-orange-500 hover:text-orange-400 transition-colors font-semibold cursor-pointer">
-        <a :href="feature.href" class="inline-flex items-center gap-2">
-          Learn How It Works <ArrowRight class="w-4 h-4" />
-        </a>
+      <div
+        v-if="feature.available"
+        class="inline-flex items-center gap-2 text-orange-500 hover:text-orange-400 transition-colors font-semibold cursor-pointer"
+        @click="router.push(feature.href)"
+        role="button"
+        tabindex="0"
+      >
+        Learn How It Works <ArrowRight class="w-4 h-4" />
       </div>
       <div v-else class="flex items-center gap-2 text-neutral-500 font-semibold">
         <Clock class="w-4 h-4" /> Available Soon
@@ -61,6 +65,9 @@ import {
   ArrowRight,
   Clock
 } from 'lucide-vue-next';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const features = [
   {
@@ -107,16 +114,3 @@ const features = [
   }
 ];
 </script>
-
-<style scoped>
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-</style>

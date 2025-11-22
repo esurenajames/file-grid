@@ -7,15 +7,19 @@
       Join thousands of teams who have already streamlined their collaboration.
     </p>
     <div class="flex flex-wrap gap-4 justify-center">
-      <button class="bg-white text-orange-600 hover:bg-neutral-100 px-8 py-3 rounded-lg text-lg font-semibold transition-colors">
+      <Button class="bg-black hover:bg-neutral-200 hover:text-slate-900 text-white px-8 py-6 rounded-lg text-lg font-semibold flex items-center gap-2 shadow-lg">
         Get Started Free
-      </button>
-      <button class="border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-lg text-lg font-semibold transition-colors">
+      </Button>
+      <Button variant="outline" class="bg-white border-0 text-slate-900 hover:bg-black hover:text-white px-8 py-6 rounded-lg text-lg font-semibold">
         Schedule Demo
-      </button>
+      </Button>
     </div>
   </div>
 </template>
+
+<script setup>
+import { Button } from '@/components/ui/button';
+</script>
 
 <style scoped>
 .trusted-bg {
