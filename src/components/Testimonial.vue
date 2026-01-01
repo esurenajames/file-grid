@@ -2,9 +2,11 @@
   <div class="bg-black py-20">
     <div class="max-w-7xl mx-auto px-6">
       <!-- Header -->
-      <h2 class="text-4xl lg:text-5xl font-bold text-white text-center mb-16 max-w-5xl mx-auto leading-tight">
-        Join the thousands of satisfied FileGrid users today and see what our customers have to say!
-      </h2>
+      <ScrollReveal animation="fade-up" :duration="800">
+        <h2 class="text-4xl lg:text-5xl font-bold text-white text-center mb-16 max-w-5xl mx-auto leading-tight">
+          Join the thousands of satisfied FileGrid users today and see what our customers have to say!
+        </h2>
+      </ScrollReveal>
 
       <!-- Testimonials Carousel -->
       <Carousel class="relative w-full mb-8" @init-api="setApi">
@@ -14,44 +16,46 @@
             :key="index"
             class="pl-6 md:basis-1/2 lg:basis-1/4"
           >
-            <Card class="bg-neutral-900 border-neutral-800 hover:border-neutral-700 transition-all duration-300 w-full h-full">
-              <CardContent class="p-6 flex flex-col h-full">
-                <!-- Testimonial Text -->
-                <p class="text-neutral-300 text-base mb-8 leading-relaxed flex-grow">
-                  {{ testimonial.text }}
-                </p>
+            <ScrollReveal animation="fade-up" :duration="800" class="h-full w-full">
+              <Card class="bg-neutral-900 border-neutral-800 hover:border-neutral-700 transition-all duration-300 w-full h-full">
+                <CardContent class="p-6 flex flex-col h-full">
+                  <!-- Testimonial Text -->
+                  <p class="text-neutral-300 text-base mb-8 leading-relaxed flex-grow">
+                    {{ testimonial.text }}
+                  </p>
 
-                <!-- User Info -->
-                <div class="flex items-center gap-3 mb-4">
-                  <Avatar>
-                    <AvatarImage :src="testimonial.avatar" :alt="testimonial.name" />
-                    <AvatarFallback class="bg-orange-600 text-white font-semibold">
-                      {{ testimonial.initials }}
-                    </AvatarFallback>
-                  </Avatar>
-                  <span class="text-white font-semibold">{{ testimonial.name }}</span>
-                </div>
+                  <!-- User Info -->
+                  <div class="flex items-center gap-3 mb-4">
+                    <Avatar>
+                      <AvatarImage :src="testimonial.avatar" :alt="testimonial.name" />
+                      <AvatarFallback class="bg-orange-600 text-white font-semibold">
+                        {{ testimonial.initials }}
+                      </AvatarFallback>
+                    </Avatar>
+                    <span class="text-white font-semibold">{{ testimonial.name }}</span>
+                  </div>
 
-                <!-- Star Rating -->
-                <div class="flex items-center gap-1">
-                  <svg
-                    v-for="star in 5"
-                    :key="star"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    :fill="star <= Math.round(testimonial.rating) ? '#ea580c' : 'none'"
-                    :stroke="star <= Math.round(testimonial.rating) ? '#ea580c' : '#525252'"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                  </svg>
-                </div>
-              </CardContent>
-            </Card>
+                  <!-- Star Rating -->
+                  <div class="flex items-center gap-1">
+                    <svg
+                      v-for="star in 5"
+                      :key="star"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      :fill="star <= Math.round(testimonial.rating) ? '#ea580c' : 'none'"
+                      :stroke="star <= Math.round(testimonial.rating) ? '#ea580c' : '#525252'"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                  </div>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
           </CarouselItem>
         </CarouselContent>
       </Carousel>
@@ -76,6 +80,7 @@
 import { ref, computed } from 'vue';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import ScrollReveal from '@/components/ui/ScrollReveal.vue';
 import {
   Carousel,
   CarouselContent,
