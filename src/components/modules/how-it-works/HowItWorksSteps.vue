@@ -1,14 +1,16 @@
 <template>
-  <div class="text-center mb-16">
-    <h2 class="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-      How <span class="text-orange-500">FileGrid</span> works
-    </h2>
-    <p class="text-lg text-neutral-400 max-w-3xl mx-auto">
-      FileGrid is a secure, real-time platform for sharing files, video calls, chat, and
-      screen sharing—peer-to-peer and private, with no cloud storage or third-party
-      tracking.
-    </p>
-  </div>
+  <ScrollReveal animation="fade-up" :duration="800">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+        How <span class="text-orange-500">FileGrid</span> works
+      </h2>
+      <p class="text-lg text-neutral-400 max-w-3xl mx-auto">
+        FileGrid is a secure, real-time platform for sharing files, video calls, chat, and
+        screen sharing—peer-to-peer and private, with no cloud storage or third-party
+        tracking.
+      </p>
+    </div>
+  </ScrollReveal>
 
   <!-- Steps & Image Layout -->
   <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
@@ -16,6 +18,7 @@
     <div class="space-y-4">
       <!-- Step One -->
       <div
+        ref="step1"
         class="border-l-4 px-8 py-6 rounded-md cursor-pointer transition-all duration-300"
         :class="
           stepActive[0]
@@ -41,6 +44,7 @@
 
       <!-- Step Two -->
       <div
+        ref="step2"
         class="border-l-4 px-8 py-6 rounded-md cursor-pointer transition-all duration-300"
         :class="
           stepActive[1]
@@ -66,6 +70,7 @@
 
       <!-- Step Three -->
       <div
+        ref="step3"
         class="border-l-4 px-8 py-6 rounded-md cursor-pointer transition-all duration-300"
         :class="
           stepActive[2]
@@ -107,10 +112,32 @@
 import { ref } from "vue";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useIntersectionObserver } from '@vueuse/core';
+import ScrollReveal from '@/components/ui/ScrollReveal.vue';
 
 const stepActive = ref([true, false, false]);
+const step1 = ref(null);
+const step2 = ref(null);
+const step3 = ref(null);
+
+function setActive(index) {
+  stepActive.value = stepActive.value.map((_, i) => i === index);
+}
+
+// Observers for scroll-spy behavior
+useIntersectionObserver(step1, ([{ isIntersecting }]) => {
+  if (isIntersecting) setActive(0);
+}, { threshold: 0.5 });
+
+useIntersectionObserver(step2, ([{ isIntersecting }]) => {
+  if (isIntersecting) setActive(1);
+}, { threshold: 0.5 });
+
+useIntersectionObserver(step3, ([{ isIntersecting }]) => {
+  if (isIntersecting) setActive(2);
+}, { threshold: 0.5 });
 
 function toggleStep(idx) {
-  stepActive.value[idx] = !stepActive.value[idx];
+  setActive(idx);
 }
 </script>
